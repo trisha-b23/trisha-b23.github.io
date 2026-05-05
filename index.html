@@ -11,14 +11,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #faf8f4;
-      --ink: #1a1714;
-      --muted: #6b6560;
-      --accent: #25684a;
-      --rule: #e2ddd8;
-      --card: #ffffff;
-      --display: 'DM Sans', serif;
-      --serif: 'DM Sans', serif;
+      --cream: #fcf9f4;
+      --ink: #35373e;
+      --muted: #695669;
+      --accent: #845b87;
+      --rule: #b8a2b5;
+      --card: #e4d7dd;
+      --display: 'Open Sans';
+      --serif: 'Open Sans';
       --sans: 'DM Sans', sans-serif;
     }
 
@@ -38,9 +38,8 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(250,248,244,0.92);
+      background: rgba(113, 63, 123, 0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--rule);
       padding: 0 clamp(1.5rem, 6vw, 5rem);
       height: 60px;
       display: flex;
@@ -52,7 +51,7 @@
       font-weight: 300;
       font-size: 1.3rem;
       letter-spacing: 0.01em;
-      color: var(--ink);
+      color: var(--cream);
       text-decoration: none;
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -61,7 +60,7 @@
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--cream);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -87,7 +86,7 @@
     }
     h1 {
       font-family: var(--display);
-      font-size: clamp(4rem, 11vw, 8rem);
+      font-size: clamp(3rem, 8vw, 5.5rem);
       font-weight: 300;
       line-height: 0.95;
       letter-spacing: -0.01em;
@@ -150,8 +149,8 @@
 
     /* ── SECTION HEADINGS ── */
     .section-label {
-      font-size: 0.72rem;
-      font-weight: 500;
+      font-size: 0.98rem;
+      font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -208,7 +207,7 @@
     }
     .project-card {
       background: var(--card);
-      border: 1px solid var(--rule);
+      border: 0px solid var(--rule);
       padding: 1.5rem;
       border-radius: 2px;
       transition: border-color 0.2s, box-shadow 0.2s;
@@ -235,9 +234,9 @@
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      background: var(--cream);
-      border: 1px solid var(--rule);
-      color: var(--muted);
+      background: var(--rule);
+      border: 0px solid var(--rule);
+      color: var(--cream);
       padding: 0.2rem 0.55rem;
       border-radius: 1px;
     }
@@ -302,7 +301,7 @@
     /* ── RESUME ── */
     .resume-viewer {
       margin-top: 2rem;
-      border: 1px solid var(--rule);
+      border: 0px solid var(--rule);
       border-radius: 2px;
       overflow: hidden;
       background: var(--card);
@@ -313,7 +312,7 @@
       justify-content: space-between;
       padding: 0.65rem 1rem;
       background: var(--cream);
-      border-bottom: 1px solid var(--rule);
+      border-bottom: 0px solid var(--rule);
     }
     .resume-toolbar span {
       font-size: 0.78rem;
@@ -344,7 +343,7 @@
       padding: 2rem;
       font-size: 0.78rem;
       color: var(--rule);
-      border-top: 1px solid var(--rule);
+      border-top: 0px solid var(--rule);
     }
 
     /* ── RESPONSIVE ── */
@@ -362,7 +361,7 @@
     <ul class="nav-links">
       <li><a href="#experience">Work</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#resume">Resume</a></li>
     </ul>
   </nav>
@@ -374,7 +373,7 @@
       <p class="hero-eyebrow">CS @ Virginia Tech &nbsp;·&nbsp; Graduating Dec 2026</p>
       <h1>Trisha<br><em>Bajpai</em></h1>
       <p class="hero-bio">
-        Full-stack developer and AI researcher building backend systems, ML-powered apps, and LLM tooling. Currently researching decision extraction and engineering infrastructure for an open-source search engine.
+        Hello! I’m a senior at Virginia Tech studying computer science, focused on building full-stack systems and ML-driven applications. I’m especially interested in how LLMs can model human decisions and power more intuitive software.
       </p>
       <div class="hero-links">
         <a class="btn btn-primary" href="mailto:trisha.bajpai.01@gmail.com">Get in touch</a>
@@ -446,61 +445,7 @@
             <a href="https://github.com/trisha-b23/ModelLens" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
-
-        <div class="project-card">
-          <p class="project-title">LLM Decision Extraction</p>
-          <p class="project-desc">Research project benchmarking LLMs on identifying decision points and causal reasoning in unstructured documents. Co-authoring findings with VT IDEEAS Lab.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">NLP</span>
-            <span class="tag">LLMs</span>
-            <span class="tag">Research</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <p class="project-title">Distributed Search Engine</p>
-          <p class="project-desc">Open-source search engine backend — VM provisioning, MongoDB + SQL architecture, schema design, and data modeling for search index and document storage.</p>
-          <div class="project-tags">
-            <span class="tag">MongoDB</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Ubuntu</span>
-            <span class="tag">Distributed Systems</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <p class="section-label">Skills</p>
-      <div class="skills-grid">
-        <div>
-          <p class="skill-group-title">Languages</p>
-          <ul class="skill-list">
-            <li>Python</li><li>Java</li><li>C</li><li>JavaScript</li><li>TypeScript</li><li>SQL</li>
-          </ul>
-        </div>
-        <div>
-          <p class="skill-group-title">Frameworks</p>
-          <ul class="skill-list">
-            <li>React</li><li>Vue.js</li><li>Node.js</li><li>FastAPI</li><li>Scikit-Learn</li>
-          </ul>
-        </div>
-        <div>
-          <p class="skill-group-title">Tools & Cloud</p>
-          <ul class="skill-list">
-            <li>Git</li><li>Docker</li><li>Linux</li><li>AWS</li><li>MongoDB</li><li>Vercel</li><li>Render</li>
-          </ul>
-        </div>
-        <div>
-          <p class="skill-group-title">AI / ML</p>
-          <ul class="skill-list">
-            <li>LLM Workflows</li><li>NLP</li><li>Data Wrangling</li><li>ML Pipelines</li>
-          </ul>
-        </div>
-      </div>
+        <video controls style="width: 100%; margin-top: 1rem; border-radius: 2px;"> <source src="ModelLens_Demo.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </section>
     </section>
 
     <!-- EDUCATION -->
@@ -527,9 +472,9 @@
       <div class="resume-viewer">
         <div class="resume-toolbar">
           <span>Trisha Bajpai — Resume</span>
-          <a href="Res.pdf" download>Download PDF ↓</a>
+          <a href="Resume.pdf" download>Download PDF ↓</a>
         </div>
-        <iframe src="Res.pdf" title="Trisha Bajpai Resume"></iframe>
+        <iframe src="Resume.pdf" title="Trisha Bajpai Resume"></iframe>
       </div>
     </section>
 
