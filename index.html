@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trisha Bajpai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf8f4;
+      --ink: #1a1714;
+      --muted: #6b6560;
+      --accent: #3d7a5f;
+      --rule: #e2ddd8;
+      --card: #ffffff;
+      --display: 'Cormorant Garamond', serif;
+      --serif: 'Cormorant Garamond', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 clamp(1.5rem, 6vw, 5rem);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-family: var(--display);
+      font-weight: 300;
+      font-size: 1.3rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    main { max-width: 860px; margin: 0 auto; padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 2rem); }
+
+    section { padding: 4rem 0; border-top: 1px solid var(--rule); }
+    section:first-child { border-top: none; padding-top: 0; }
+
+    /* ── HERO ── */
+    .hero { padding-bottom: 4rem; }
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s forwards;
+    }
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(4rem, 11vw, 8rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+    .hero-bio {
+      max-width: 560px;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.35s forwards;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s forwards;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: 2px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-outline {
+      border: 1.5px solid var(--rule);
+      color: var(--muted);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 2rem; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 2rem;
+    }
+    .exp-date {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      padding-top: 0.25rem;
+      letter-spacing: 0.02em;
+    }
+    .exp-role {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+    }
+    .exp-org {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+    .exp-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+    .exp-desc li { margin-bottom: 0.3rem; margin-left: 1rem; }
+
+    /* ── PROJECTS ── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 1.5rem;
+      border-radius: 2px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .project-desc {
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.55;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      padding: 0.2rem 0.55rem;
+      border-radius: 1px;
+    }
+
+    .project-links { display: flex; gap: 1rem; margin-top: 1rem; }
+    .project-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .project-links a:hover { opacity: 0.7; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .skill-group-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .skill-list li {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+    .skill-list li:not(:last-child)::after { content: ','; }
+
+    /* ── EDUCATION ── */
+    .edu-block { margin-top: 2rem; }
+    .edu-school { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.25rem; }
+    .edu-degree { font-size: 0.95rem; color: var(--muted); font-weight: 300; margin-bottom: 0.75rem; }
+    .edu-honors { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .honor-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      background: var(--cream);
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      padding: 0.25rem 0.7rem;
+      border-radius: 1px;
+    }
+
+    /* ── RESUME ── */
+    .resume-viewer {
+      margin-top: 2rem;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+      background: var(--card);
+    }
+    .resume-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--rule);
+    }
+    .resume-toolbar span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .resume-toolbar a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+    .resume-toolbar a:hover { opacity: 0.7; }
+    .resume-viewer iframe {
+      display: block;
+      width: 100%;
+      height: 780px;
+      border: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: var(--rule);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-date { margin-bottom: 0.25rem; }
+      .nav-links { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="#">Trisha Bajpai</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="hero-eyebrow">CS @ Virginia Tech &nbsp;·&nbsp; Graduating Dec 2026</p>
+      <h1>Trisha<br><em>Bajpai</em></h1>
+      <p class="hero-bio">
+        Full-stack developer and AI researcher building backend systems, ML-powered apps, and LLM tooling. Currently researching decision extraction and engineering infrastructure for an open-source search engine.
+      </p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="mailto:trisha.bajpai.01@gmail.com">Get in touch</a>
+        <a class="btn btn-outline" href="https://github.com/trisha-b23" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/trisha-bajpai" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <p class="section-label">Experience</p>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <span class="exp-date">May 2026</span>
+          <div>
+            <p class="exp-role">Software Developer Intern (Incoming)</p>
+            <p class="exp-org">Virginia Cyber Range</p>
+            <ul class="exp-desc">
+              <li>Selected to design software components for national-scale cybersecurity infrastructure and virtualization tools.</li>
+              <li>Will apply full-stack skills (Node.js, TypeScript, REST APIs) to reactive web apps with Docker and microservices.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <span class="exp-date">Fall 2025 – Present</span>
+          <div>
+            <p class="exp-role">Undergraduate AI Researcher</p>
+            <p class="exp-org">Virginia Tech IDEEAS Lab</p>
+            <ul class="exp-desc">
+              <li>Researching LLM ability to identify human decision points and causal influences within unstructured text.</li>
+              <li>Benchmarking model extractions against source data to evaluate accuracy of model-generated decision logic.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <span class="exp-date">Spring 2026 – Present</span>
+          <div>
+            <p class="exp-role">Data Engineer</p>
+            <p class="exp-org">Open Source Search Engine (15-person team)</p>
+            <ul class="exp-desc">
+              <li>Provisioning and configuring VMs for distributed backend infrastructure.</li>
+              <li>Designing data storage architecture using MongoDB and SQL with optimized schema and indexing strategy.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <p class="section-label">Projects</p>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <p class="project-title">ModelLens</p>
+          <p class="project-desc">Full-stack ML app automating Scikit-Learn training and inference for regression models. Parses CSV metadata to auto-generate prediction forms with real-time results.</p>
+          <div class="project-tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">React</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">Python</span>
+          </div>
+          <div class="project-links">
+            <a href="https://model-lens-one.vercel.app/" target="_blank" rel="noopener">Live App ↗</a>
+            <a href="https://github.com/trisha-b23/ModelLens" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-title">LLM Decision Extraction</p>
+          <p class="project-desc">Research project benchmarking LLMs on identifying decision points and causal reasoning in unstructured documents. Co-authoring findings with VT IDEEAS Lab.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">NLP</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">Research</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <p class="project-title">Distributed Search Engine</p>
+          <p class="project-desc">Open-source search engine backend — VM provisioning, MongoDB + SQL architecture, schema design, and data modeling for search index and document storage.</p>
+          <div class="project-tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Distributed Systems</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <p class="section-label">Skills</p>
+      <div class="skills-grid">
+        <div>
+          <p class="skill-group-title">Languages</p>
+          <ul class="skill-list">
+            <li>Python</li><li>Java</li><li>C</li><li>JavaScript</li><li>TypeScript</li><li>SQL</li>
+          </ul>
+        </div>
+        <div>
+          <p class="skill-group-title">Frameworks</p>
+          <ul class="skill-list">
+            <li>React</li><li>Vue.js</li><li>Node.js</li><li>FastAPI</li><li>Scikit-Learn</li>
+          </ul>
+        </div>
+        <div>
+          <p class="skill-group-title">Tools & Cloud</p>
+          <ul class="skill-list">
+            <li>Git</li><li>Docker</li><li>Linux</li><li>AWS</li><li>MongoDB</li><li>Vercel</li><li>Render</li>
+          </ul>
+        </div>
+        <div>
+          <p class="skill-group-title">AI / ML</p>
+          <ul class="skill-list">
+            <li>LLM Workflows</li><li>NLP</li><li>Data Wrangling</li><li>ML Pipelines</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-label">Education</p>
+      <div class="edu-block">
+        <p class="edu-school">Virginia Tech</p>
+        <p class="edu-degree">B.S. Computer Science &nbsp;·&nbsp; GPA 3.86 (In-Major 3.96) &nbsp;·&nbsp; Expected Dec 2026</p>
+        <div class="edu-honors">
+          <span class="honor-badge">Honors College</span>
+          <span class="honor-badge">Dean's List × 5</span>
+          <span class="honor-badge">Applied Combinatorics</span>
+          <span class="honor-badge">Cryptography</span>
+          <span class="honor-badge">Computer Systems</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume">
+      <p class="section-label">Resume</p>
+      <div class="resume-viewer">
+        <div class="resume-toolbar">
+          <span>Trisha Bajpai — Resume</span>
+          <a href="Res.pdf" download>Download PDF ↓</a>
+        </div>
+        <iframe src="Res.pdf" title="Trisha Bajpai Resume"></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Trisha Bajpai</footer>
+
+</body>
+</html>
